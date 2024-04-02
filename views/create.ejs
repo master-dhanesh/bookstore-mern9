@@ -1,6 +1,29 @@
 <%- include("./partials/header")%>
-    <!--  -->
+<!--  -->
 
-    <h1>Book Store Entry</h1>
-    <!--  -->
-    <%- include("./partials/footer")%>
+<h1>Book Store Entry</h1>
+<form action="/create" method="post">
+    <input type="text" placeholder="Book Name" name="name" />
+    <br /><br />
+    <input type="text" placeholder="Author Name" name="author" />
+    <br /><br />
+    <input type="text" placeholder="Book Price" name="price" />
+    <br /><br />
+    <input type="text" placeholder="Book Quantity" name="quantity" />
+    <br /><br />
+    <input type="text" placeholder="Book Category" name="category" />
+    <br /><br />
+    <input type="text" placeholder="Book Language" name="language" />
+    <br /><br />
+    <textarea
+        name="description"
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="enter text here..."
+    ></textarea>
+    <br /><br />
+    <button>Add Book</button>
+</form>
+<!--  -->
+<%- include("./partials/footer")%>

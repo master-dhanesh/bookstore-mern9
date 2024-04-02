@@ -1,6 +1,13 @@
 <%- include("./partials/header")%>
-    <!--  -->
+<!--  -->
 
-    <h1>Book Store Library</h1>
-    <!--  -->
-    <%- include("./partials/footer")%>
+<h1>Book Store Library</h1>
+<!--  -->
+<% books.forEach(function(book){ %>
+<!--  -->
+<p><%= book.name %></p>
+<!--  -->
+<% }) %>
+
+<!--  -->
+<%- include("./partials/footer")%>
