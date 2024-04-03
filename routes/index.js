@@ -20,4 +20,9 @@ router.get("/readall", function (req, res, next) {
     res.render("library", { books: BOOKS });
 });
 
+router.get("/delete/:index", function (req, res, next) {
+    BOOKS.splice(req.params.index, 1);
+    res.redirect("/readall");
+});
+
 module.exports = router;

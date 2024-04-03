@@ -1,13 +1,25 @@
 <%- include("./partials/header")%>
 <!--  -->
 
-<h1>Book Store Library</h1>
+<h1 class="container mt-5">Book Store Library</h1>
 <!--  -->
-<% books.forEach(function(book){ %>
-<!--  -->
-<p><%= book.name %></p>
-<!--  -->
-<% }) %>
+<div class="d-flex flex-wrap container bg-light p-5">
+    <% books.forEach(function(book, index){ %>
+    <div class="card me-3 mb-3" style="width: 18rem">
+        <div class="card-body">
+            <h5 class="card-title"><%= book.name%></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">
+                <%= book.author%>
+            </h6>
+            <p class="card-text"><%= book.description%></p>
+            <a href="/delete/<%= index%>" class="card-link text-danger"
+                >Delete Book</a
+            >
+            <a href="/update/<%= index%>" class="card-link">Update Book</a>
+        </div>
+    </div>
+    <% }) %>
+</div>
 
 <!--  -->
 <%- include("./partials/footer")%>
