@@ -1,0 +1,65 @@
+<%- include("./partials/header")%>
+<!--  -->
+
+<form
+    class="container w-50 mt-2 p-5 bg-light"
+    action="/update/<%= index%>"
+    method="post"
+>
+    <h1>Book Store Update Entry</h1>
+    <input
+        class="form-control mb-3"
+        type="text"
+        placeholder="Book Name"
+        name="name"
+        value="<%= book.name%>"
+    />
+
+    <input
+        class="form-control mb-3"
+        type="text"
+        placeholder="Author Name"
+        name="author"
+    />
+
+    <input
+        class="form-control mb-3"
+        type="text"
+        placeholder="Book Price"
+        name="price"
+    />
+
+    <input
+        class="form-control mb-3"
+        type="text"
+        placeholder="Book Quantity"
+        name="quantity"
+    />
+
+    <input
+        class="form-control mb-3"
+        type="text"
+        placeholder="Book Category"
+        name="category"
+    />
+
+    <input
+        class="form-control mb-3"
+        type="text"
+        placeholder="Book Language"
+        name="language"
+    />
+
+    <textarea
+        class="form-control mb-3"
+        name="description"
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="enter text here..."
+    ></textarea>
+
+    <button class="btn btn-primary">Update Book</button>
+</form>
+<!--  -->
+<%- include("./partials/footer")%>
