@@ -20,6 +20,7 @@
         type="text"
         placeholder="Author Name"
         name="author"
+        value="<%= book.author%>"
     />
 
     <input
@@ -27,6 +28,7 @@
         type="text"
         placeholder="Book Price"
         name="price"
+        value="<%= book.price%>"
     />
 
     <input
@@ -34,6 +36,7 @@
         type="text"
         placeholder="Book Quantity"
         name="quantity"
+        value="<%= book.quantity%>"
     />
 
     <input
@@ -41,6 +44,7 @@
         type="text"
         placeholder="Book Category"
         name="category"
+        value="<%= book.category%>"
     />
 
     <input
@@ -48,6 +52,7 @@
         type="text"
         placeholder="Book Language"
         name="language"
+        value="<%= book.language%>"
     />
 
     <textarea
@@ -57,7 +62,9 @@
         cols="30"
         rows="10"
         placeholder="enter text here..."
-    ></textarea>
+    >
+<%= book.description %></textarea
+    >
 
     <button class="btn btn-primary">Update Book</button>
 </form>

@@ -42,4 +42,10 @@ router.get("/update/:index", function (req, res, next) {
     res.render("update", { book: b, index: i });
 });
 
+router.post("/update/:index", function (req, res, next) {
+    const i = req.params.index;
+    BOOKS[i] = req.body;
+    res.redirect("/readall");
+});
+
 module.exports = router;
