@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
+const Books = require("../models/bookModel");
+
 const BOOKS = [
     {
         name: "Book 1",
@@ -23,12 +25,21 @@ router.get("/create", function (req, res, next) {
 });
 
 router.post("/create", function (req, res, next) {
-    BOOKS.push(req.body);
-    res.redirect("/readall");
+    // BOOKS.push(req.body);
+    // res.redirect("/readall");
+    Books.create(req.body)
+        .then(() => {
+            res.redirect("/readall");
+        })
+        .catch((err) => res.send(err));
 });
 
 router.get("/readall", function (req, res, next) {
-    res.render("library", { books: BOOKS });
+    Books.find()
+        .then((books) => {
+            res.render("library", { books: books });
+        })
+        .catch((err) => res.send(err));
 });
 
 router.get("/delete/:index", function (req, res, next) {
