@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const bookModel = new mongoose.Schema({
+    image: String,
     name: String,
     author: String,
     price: Number,

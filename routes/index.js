@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 
 const upload = require("../utils/multer").single("image");
-
 const Books = require("../models/bookModel");
 
 router.get("/", function (req, res, next) {
@@ -15,10 +14,9 @@ router.get("/create", function (req, res, next) {
 
 router.post("/create", upload, async function (req, res, next) {
     try {
-        res.json({ body: req.body, file: req.file });
-        // const newbook = new Books(req.body);
-        // await newbook.save();
-        // res.redirect("/readall");
+        const newbook = new Books({ ...req.body, image: req.file.filename });
+        await newbook.save();
+        res.redirect("/readall");
     } catch (error) {
         res.send(error);
     }
