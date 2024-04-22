@@ -3,6 +3,11 @@
 
     <form class="container w-50 mt-2 p-5 bg-light" action="/update/<%= book._id %>" method="post">
         <h1>Book Store Update Entry</h1>
+
+        <div class="mb-3"><img width="200" src="/images/<%=book.image%>" alt=""></div>
+
+        <input class="form-control mb-3" type="file" name="image" />
+
         <input class="form-control mb-3" type="text" placeholder="Book Name" name="name" value="<%= book.name%>" />
 
         <input class="form-control mb-3" type="text" placeholder="Author Name" name="author"

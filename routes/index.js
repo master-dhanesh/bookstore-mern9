@@ -1,6 +1,9 @@
 var express = require("express");
 var router = express.Router();
 
+const fs = require("fs");
+const path = require("path");
+
 const upload = require("../utils/multer").single("image");
 const Books = require("../models/bookModel");
 
@@ -33,7 +36,12 @@ router.get("/readall", async function (req, res, next) {
 
 router.get("/delete/:id", async function (req, res, next) {
     try {
-        await Books.findByIdAndDelete(req.params.id);
+        const book = await Books.findByIdAndDelete(req.params.id);
+
+        fs.unlinkSync(
+            path.join(__dirname, "..", "public", "images", book.image)
+        );
+
         res.redirect("/readall");
     } catch (error) {
         res.send(error);
