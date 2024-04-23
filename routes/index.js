@@ -57,9 +57,23 @@ router.get("/update/:id", async function (req, res, next) {
     }
 });
 
-router.post("/update/:id", async function (req, res, next) {
+router.post("/update/:id", upload, async function (req, res, next) {
     try {
-        await Books.findByIdAndUpdate(req.params.id, req.body);
+        const updateddata = { ...req.body };
+        if (req.file) {
+            updateddata.image = req.file.filename;
+            fs.unlinkSync(
+                path.join(
+                    __dirname,
+                    "..",
+                    "public",
+                    "images",
+                    req.body.oldimage
+                )
+            );
+        }
+
+        await Books.findByIdAndUpdate(req.params.id, updateddata);
         res.redirect("/readall");
     } catch (error) {
         res.send(error);
